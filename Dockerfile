@@ -3,9 +3,12 @@
 
 FROM debian:jessie
 
+RUN apt-get -yqq update && \
+    apt-get install -y git curl python make gcc-g++
+
 RUN curl https://deb.nodesource.com/setup | sh && \
     apt-get -yqq update && \
-    apt-get install -y git curl python make gcc-g++ nodejs
+    apt-get install -y nodejs
 
 # Make sure we have a directory for the application
 RUN mkdir -p /var/www
